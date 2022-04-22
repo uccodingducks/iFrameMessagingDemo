@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+  <h1>Parent page here</h1>
+  <iframe src="childPage.html"></iframe>
+  <h2 id="Message"></h2>
+  <script>
+    window.addEventListener('message', handleMessage, false);
+    function handleMessage (msg) {
+      console.log('Handling message here', msg)
+      const data = JSON.parse(msg.data)
+      const text = data.message + '-' + data.date
+      window.document.getElementById('Message').innerText = text
+    }
+  </script>
+</body>
+</html>

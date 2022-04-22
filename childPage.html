@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+  <a href="#" onclick="sendMessage()">Click here to send message</a>
+  <script>
+    function sendMessage() {
+      const message = JSON.stringify({
+        message: 'Hello from iframe',
+        date: Date.now(),
+      });
+      window.parent.postMessage(message, '*');
+    }
+  </script>
+</body>
+</html>
